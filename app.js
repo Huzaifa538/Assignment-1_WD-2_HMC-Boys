@@ -83,7 +83,7 @@ function printObject(obj) {
 printObject(student);
 
 // 13
-let fruits = ["apple", "mango", "banana"];
+let fruits = ["apple", "orange", "mango"];
 console.log(fruits);
 
 // 14
@@ -113,14 +113,14 @@ let firstGreater10 = arr.find(n => n > 10);
 console.log(firstGreater10);
 
 // 20
-let names = ["Huzaifa", "Adam", "Umar"];
+let names = ["Huzaifa", "Adam", "Zeshan"];
 names.forEach(name => console.log(name));
 
 // 21
 const students = [
     { name: "Huzaifa", marks: 80 },
     { name: "Adam", marks: 95 },
-    { name: "Umar", marks: 45 }
+    { name: "Haider", marks: 45 }
 ];
 let studentNames = students.map(s => s.name);
 console.log(studentNames);
@@ -142,7 +142,7 @@ let squares = numbers.map(n => n * n);
 console.log(squares);
 
 // 26
-let nameArr = ["Huzaifa", "Adam", "Umar", "Ahmed"];
+let nameArr = ["Huzaifa", "Adam", "Ahad", "Ahmed"];
 nameArr.forEach(n => console.log(n));
 
 // 27
@@ -158,7 +158,7 @@ console.log(fruitsArr.includes("apple"));
 let studList = [
     { name: "Huzaifa", marks: 75 },
     { name: "Adam", marks: 92 },
-    { name: "Umar", marks: 85 }
+    { name: "abdullah", marks: 85 }
 ];
 let topStudent = studList.find(s => s.marks > 90);
 console.log(topStudent);
@@ -172,7 +172,7 @@ console.log(total);
 let users = [
     { id: 1, username: "huzaifa123" },
     { id: 2, username: "adam88" },
- { id: 3, username: "umar_01" }
+ { id: 3, username: "abdullah_01" }
 ];
 let usernames = users.map(u => u.username);
 console.log(usernames);
