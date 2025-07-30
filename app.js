@@ -1,221 +1,191 @@
 // 1
-let num = 7;
-if (num % 2 === 0) {
-    console.log("Even");
-} else {
-    console.log("Odd");
+const text = "I am Huzaifa and I am learming React";
+
+function countWords(str) {
+  let words = str.split(" ");
+  let result = {};
+
+  for (let word of words) {
+    if (result[word]) {
+      result[word]++;
+    } else {
+      result[word] = 1;
+    }
+  }
+
+  console.log("1. Word Count:", result);
 }
+countWords(text);
+
 
 // 2
-let age = 18;
-if (age >= 18) {
-    console.log("Eligible to vote");
-} else {
-    console.log("Not eligible");
+const students = [
+  { name: "Ali", class: "10th" },
+  { name: "Sara", class: "9th" },
+  { name: "Ahmed", class: "10th" },
+  { name: "Zara", class: "9th" }
+];
+
+function groupStudents(list) {
+  let result = {};
+
+  for (let student of list) {
+    let cls = student.class;
+    if (!result[cls]) {
+      result[cls] = [];
+    }
+    result[cls].push(student.name);
+  }
+
+  console.log("2. Grouped Students:", result);
 }
+groupStudents(students);
+
 
 // 3
-for (let i = 1; i <= 10; i++) {
-    console.log(i);
+const products = [
+  { name: "Laptop", price: 800 },
+  { name: "Mouse", price: 20 },
+  { name: "Phone", price: 500 },
+];
+
+function filterProducts(min, max) {
+  let result = [];
+
+  for (let item of products) {
+    if (item.price >= min && item.price <= max) {
+      result.push(item);
+    }
+  }
+
+  console.log("3. Filtered Products:", result);
 }
+filterProducts(100, 600);
+
 
 // 4
-let i = 2;
-while (i <= 20) {
-    console.log(i);
-    i += 2;
+function checkPalindrome(word) {
+  let reversed = word.split("").reverse().join("");
+  if (word === reversed) {
+    console.log("4. Palindrome: Yes");
+  } else {
+    console.log("4. Palindrome: No");
+  }
 }
+checkPalindrome("madam");
+
 
 // 5
-let str = "hello";
-let reverseStr = "";
-for (let i = str.length - 1; i >= 0; i--) {
-    reverseStr += str[i];
+const nested = [1, [2, [3, 4]], 5];
+
+function flatten(arr) {
+
+  return arr.flat(2);
 }
-console.log(reverseStr);
+console.log("5. Flattened Array:", flatten(nested));
+
 
 // 6
-function add(a, b) {
-    return a + b;
-}
-console.log(add(5, 10));
 
-// 7
-function factorial(n) {
-    let fact = 1;
-    for (let i = 1; i <= n; i++) {
-        fact *= i;
-    }
-    return fact;
-}
-console.log(factorial(5));
+const employees = [
+  { name: "Ali", salary: 1000 },
+  { name: "Zara", salary: 1500 },
+  { name: "Ahmed", salary: 1200 },
+];
 
-// 8
-function isPalindrome(s) {
-    return s === s.split("").reverse().join("");
-}
-console.log(isPalindrome("madam"));
+function totalSalary(list) {
+  let total = 0;
+  for (let emp of list) {
+    total += emp.salary;
+  }
 
-// 9
-let student = {
-    name: "Huzaifa",
-    rollNo: 101,
-    marks: 85,
-    isPassed: true
-};
+  console.log("6. Total Salary:", total);
+}
+totalSalary(employees);
+
 
 // 10
-console.log(student.name);
-console.log(student["marks"]);
+const data = [1, 2, [4, 5, [6, 8]], 10];
+
+function sumEven(arr) {
+  let total = 0;
+
+  for (let item of arr) {
+    if (Array.isArray(item)) {
+      total += sumEven(item);
+    } else if (item % 2 === 0) {
+      total += item;
+    }
+  }
+
+
+  return total;
+}
+
+console.log("10. Even Numbers Sum:", sumEven(data));
+
 
 // 11
-student.greet = function () {
-    console.log(`Hello, I am ${this.name}`);
-};
-student.greet();
+function average(...numbers) {
+  let total = 0;
+  for (let n of numbers) {
+    total += n;
+  }
+
+
+  let avg = total / numbers.length;
+  console.log("11. Average:", avg);
+}
+average(10, 20, 30);
+
+
 
 // 12
-function printObject(obj) {
-    for (let key in obj) {
-        console.log(key, ":", obj[key]);
+const fruits = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple'];
+
+function countFruits(arr) {
+  let result = {};
+
+
+  for (let fruit of arr) {
+    if (result[fruit]) {
+      result[fruit]++;
+    } else {
+      result[fruit] = 1;
     }
+  }
+
+  console.log("12. Fruit Count:", result);
 }
-printObject(student);
+countFruits(fruits);
+
 
 // 13
-let fruits = ["apple", "orange", "mango"];
-console.log(fruits);
+const tasks = [
+  { id: 1, name: "Code", done: false },
+  { id: 2, name: "Eat", done: true },
+];
+
+function toggleTask(id) {
+  for (let task of tasks) {
+    if (task.id === id) {
+      task.done = !task.done;
+    }
+  }
+
+  console.log("13. Updated Tasks:", tasks);
+}
+toggleTask(1);
+
 
 // 14
-fruits.push("orange");
-console.log(fruits);
+const names = ["Ali", "Zara", "Ahmed", "Usman"];
 
-// 15
-fruits.pop();
-console.log(fruits);
+function sortNames(arr) {
+  arr.sort(function(a, b) {
+    return a.length - b.length;
+  });
 
-// 16
-console.log(fruits.includes("banana"));
-
-// 17
-let nums = [1, 2, 3, 4];
-let doubled = nums.map(n => n * 2);
-console.log(doubled);
-
-// 18
-let ages = [12, 18, 22, 15];
-let adults = ages.filter(age => age >= 18);
-console.log(adults);
-
-// 19
-let arr = [5, 8, 12, 20];
-let firstGreater10 = arr.find(n => n > 10);
-console.log(firstGreater10);
-
-// 20
-let names = ["Huzaifa", "Adam", "Zeshan"];
-names.forEach(name => console.log(name));
-
-// 21
-const students = [
-    { name: "Huzaifa", marks: 80 },
-    { name: "Adam", marks: 95 },
-    { name: "Haider", marks: 45 }
-];
-let studentNames = students.map(s => s.name);
-console.log(studentNames);
-
-// 22
-let passed = students.filter(s => s.marks > 50);
-console.log(passed);
-
-// 23
-let adam = students.find(s => s.name === "Adam");
-console.log(adam);
-
-// 24
-students.forEach(s => console.log(`${s.name} - ${s.marks}`));
-
-// 25
-let numbers = [2, 4, 6, 8];
-let squares = numbers.map(n => n * n);
-console.log(squares);
-
-// 26
-let nameArr = ["Huzaifa", "Adam", "Ahad", "Ahmed"];
-nameArr.forEach(n => console.log(n));
-
-// 27
-let ageList = [12, 25, 17, 20, 16, 30];
-let above18 = ageList.filter(a => a > 18);
-console.log(above18);
-
-// 28
-let fruitsArr = ["banana", "mango", "grapes", "apple"];
-console.log(fruitsArr.includes("apple"));
-
-// 29
-let studList = [
-    { name: "Huzaifa", marks: 75 },
-    { name: "Adam", marks: 92 },
-    { name: "abdullah", marks: 85 }
-];
-let topStudent = studList.find(s => s.marks > 90);
-console.log(topStudent);
-
-// 30
-let sumArr = [200, 150, 300, 100];
-let total = sumArr.reduce((acc, val) => acc + val, 0);
-console.log(total);
-
-// 31
-let users = [
-    { id: 1, username: "huzaifa123" },
-    { id: 2, username: "adam88" },
- { id: 3, username: "abdullah_01" }
-];
-let usernames = users.map(u => u.username);
-console.log(usernames);
-
-// 32
-let numsArr = [1, 2, 3, 4, 5, 6];
-let oddNumbers = numsArr.filter(n => n % 2 !== 0);
-console.log(oddNumbers);
-
-
-// 33
-let word = "javascript";
-let vowels = "aeiou";
-let count = 0;
-for (let char of word) {
-    if (vowels.includes(char)) count++;
+  console.log("14. Sorted Names:", arr);
 }
-console.log(count);
-
-
-// 34
-let tasks = [
-    { task: "Assignment", completed: true },
-    { task: "Homework", completed: false }
-];
-
-tasks.forEach(t => {
-    let status = t.completed ? "Completed" : "Incomplete";
-    console.log("Task:", t.task, "- Status:", status);
-});
-
-// 35
-let employees = [
-    { name: "Huzaifa", position: "Manager" },
-    { name: "Adam", position: "Developer" }
-];
-
-let updatedEmployees = employees.map(e => {
-    return {
-        name: e.name,
-        position: e.position,
-        status: "active"
-    };
-});
-
-console.log("Updated Employees:", updatedEmployees);
+sortNames(names);
